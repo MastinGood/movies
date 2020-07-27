@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+html{
+	font-family: 'Inter', sans-serif!important;
+}
+.custom-dark{
+	background: #212121;
+}
+.dark2{
+	background: #222;
+}
+.poster{
+	filter: brightness(0.9);
+	transition: all 100ms ease-in-out;
+}
+.primary{
+	color: #00C6CF!important;
+}
+.hover\:primary:hover, .focus\:primary:focus{
+	color: #00C6CF!important;
+}
+.nuxt-link-active{
+   color:#00C6CF;
+}
+.nuxt-link-exact-active{
+   color:#00C6CF;
+}
+a:hover svg{
+	fill:#00C6CF!important;
+}
+.poster:hover{
+	filter: brightness(1);
+}
+.nav-shadow{
+	box-shadow: 0 10px 20px 0 rgba(0,0,0,.2)!important;
+}
+.btn-gradient{
+	background: #00C6CF;
+    transition: all .6s ease-in-out;
+}
+.btn-gradient:hover{
+	background-position: -50% 0;
+}
+.search{
+	background: rgba(0, 0, 0, 0.9);
+
+}
+.custom-white{
+	color: #7c7c7d;
+}
