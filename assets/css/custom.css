@@ -16,20 +16,33 @@ html{
 .primary{
 	color: #00C6CF!important;
 }
+.bg-primary{
+	background: #00C6CF;
+}
 .hover\:primary:hover, .focus\:primary:focus{
 	color: #00C6CF!important;
 }
-.nuxt-link-active{
-   color:#00C6CF;
+
+.bottom-border-dark{
+	border-bottom: 1px solid #363636;
+}
+.top-border-dark{
+	border-top: 1px solid #363636;
 }
 .nuxt-link-exact-active{
-   color:#00C6CF;
+   color:#00C6CF!important;
+}
+.nuxt-link-exact-active svg{
+   fill: #00C6CF!important;
 }
 a:hover svg{
 	fill:#00C6CF!important;
 }
 .poster:hover{
 	filter: brightness(1);
+}
+.movie-wrapper:hover p{
+	color: #00C6CF!important;
 }
 .nav-shadow{
 	box-shadow: 0 10px 20px 0 rgba(0,0,0,.2)!important;
@@ -41,10 +54,38 @@ a:hover svg{
 .btn-gradient:hover{
 	background-position: -50% 0;
 }
-.search{
+.search,.video-bg{
 	background: rgba(0, 0, 0, 0.9);
 
 }
 .custom-white{
 	color: #7c7c7d;
 }
+.video-youtube{
+		width: 90%;
+		height: 340px;
+	}
+@media (min-width: 640px) { 
+	.video-youtube{
+		width: 90%;
+		height: 450px;
+	}
+ }
+@media (min-width: 768px) { 
+	.video-youtube{
+		width: 80%;
+		height: 520px;
+	}
+ }
+@media (min-width: 1024px) { 
+	.video-youtube{
+		width: 80%;
+		height: 600px;
+	}
+ }
+@media (min-width: 1280px) { 
+	.video-youtube{
+		width: 80%;
+		height: 720px;
+	}
+ }

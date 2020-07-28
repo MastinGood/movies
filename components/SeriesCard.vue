@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link :to="'/movie/'+movie.id">
+  <nuxt-link :to="'/tv-series/'+series.id">
 	<div class="mt-5 movie-wrapper transform transition ease-in-out duration-500 hover:scale-105">
-		<img :src="base_path+movie.poster_path" class="rounded-md poster">
-		<p class="md:text-lg sm:text-md text-sm text-white mt-2 hover:primary">{{movie.title}}</p>
+		<img :src="base_path+series.poster_path" class="rounded-md poster ">
+		<p class="md:text-lg sm:text-md text-sm text-white mt-2 hover:primary">{{series.name}}</p>
 	</div>
   </nuxt-link>
 </template>
@@ -14,9 +14,9 @@ export default {
   		base_path: "https://image.tmdb.org/t/p/w500/"
   	}
   },
-  name: 'MovieCard',
+  name: 'SeriesCard',
   props: {
-  	movie: Object
+  	series: Object
   }
 }
 </script>
