@@ -4,7 +4,7 @@
       <div class="md:w-10/12 w-11/12 mx-auto md:pt-16 pt-8">
         <div>
           <label class="md:text-lg text-md primary font-bold uppercase tracking-wider">Trending Movies</label>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <MovieCard v-for="(trending, index) in trendings.slice(0,18)" :key="index" :movie="trending" :data-index="index"/>
           </div>
         </div>
@@ -18,7 +18,7 @@
             </nuxt-link>
           </div>
           
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <MovieCard v-for="(now, index) in nows.slice(0,18)" :key="index" :movie="now" :data-index="index"/>
           </div>
         </div>
@@ -31,7 +31,7 @@
             </svg>
             </nuxt-link>
           </div>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <MovieCard v-for="(upcoming, index) in upcomings.slice(0,18)" :key="index" :movie="upcoming" :data-index="index"/>
           </div>
         </div>
@@ -44,7 +44,7 @@
             </svg>
             </nuxt-link>
           </div>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <MovieCard v-for="(popular, index) in populars.slice(0,18)" :key="index" :movie="popular" :data-index="index"/>
           </div>
         </div>
@@ -57,7 +57,7 @@
             </svg>
             </nuxt-link>
           </div>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <MovieCard v-for="(top, index) in tops.slice(0,18)" :key="index" :movie="top" :data-index="index"/>
           </div>
         </div>
@@ -69,6 +69,18 @@
 <script>
   import MovieCard from '~/components/MovieCard.vue'
   export default {
+    head(){
+    return{
+      title: 'Find Movies Online',
+      meta: [
+        {
+        hid: 'description',
+        name: 'description',
+        content: 'Find TV Show Online, Find Movies Online',
+        }
+      ]
+      }
+    },
     components:{
       MovieCard
     },

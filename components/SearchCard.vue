@@ -1,11 +1,14 @@
 <template>
-  <nuxt-link :to="'/tv-series/'+series.id">
+  <a>
 	<div class="mt-5 movie-wrapper transform transition ease-in-out duration-500 hover:scale-105">
-    <img v-if="series.poster_path === null" v-lazy-load src="~/assets/images/poster.jpg" class="rounded-md poster w-auto h-auto">
-		<img v-else :src="base_path+series.poster_path" v-lazy-load class="rounded-md poster ">
-		<p class="md:text-lg sm:text-md text-sm text-white mt-2 hover:primary">{{series.name | truncate(40, '...')}}</p>
+    
+      <img v-if="result.poster_path === null" v-lazy-load src="~/assets/images/poster.jpg" class="rounded-md poster w-auto h-auto">
+   
+      <img v-else :src="base_path+result.poster_path" v-lazy-load class="rounded-md poster">
+   
+		<p class="md:text-lg sm:text-md text-sm text-white mt-2 hover:primary">{{result.title | truncate(40, '...')}}</p>
 	</div>
-  </nuxt-link>
+  </a>
 </template>
 
 <script>
@@ -24,9 +27,10 @@ export default {
             }
         },
     },
-  name: 'SeriesCard',
+  name: 'ResultCard',
   props: {
-  	series: Object
+  	result: Object,
+    keyword: String,
   }
 }
 </script>

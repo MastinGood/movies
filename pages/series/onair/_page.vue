@@ -4,7 +4,7 @@
       <div class="md:w-10/12 w-11/12 mx-auto pt-16">
         <div>
           <label class="text-lg primary font-bold uppercase tracking-wider">TV Series On the Air</label>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-6">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <SeriesCard v-for="(onair, index) in onairs" :key="index" :series="onair" :data-index="index"/>
           </div>
         </div>

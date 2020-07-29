@@ -5,7 +5,7 @@
 	      <div class="flex items-center justify-between md:h-20 h-16">
 	        <div class="flex items-center">
 	          <div class="flex-shrink-0">
-	            <nuxt-link to="/"><img class="h-8 w-8 cursor-pointer" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="Workflow logo"></nuxt-link>
+	            <nuxt-link to="/"><img class="lg:h-10 h-8 w-auto cursor-pointer" src="logo.svg" alt="Workflow logo"></nuxt-link>
 	          </div>
 	          <div class="hidden md:block">
 	            <div class="ml-10 flex items-baseline">
@@ -64,7 +64,6 @@
 	    </div>
 	  </nav>
 	  <div class="h-16 z-50  bottom-0 fixed md:hidden block w-full dark2 top-border-dark">
-	  	
 	  		<div class="flex items-center h-full">
 			  <div class="flex-1 text-center mt-1">
 			  	<nuxt-link to="/" class="text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
@@ -155,44 +154,111 @@
 			</div>
 	  	
 	  </div>
-	  <transition name="slide-fade">
-	  <div v-show="search" class="search  z-50 top-0 h-full w-full bg-gray-700 fixed">
-	  	<div class="relative sm:h-20 h-16 dark2">
-	  		<input type="text" class="w-full sm:h-20 h-16 dark2 border-0 md:pl-8 pl-4 md:pr-64 pr-24 focus:outline-none text-white inline-block">
-	  		
-	  		<div class="absolute right-0 top-0 md:mt-3 mt-4 md:pr-8 pr-6">
-	  			
-	  			
-		  			<button class="hidden md:inline-block cursor-pointer lg:ml-8 md:4 py-4 px-8 font-bold tracking-wider uppercase text-white rounded-full  btn-gradient">Search</button>
+	  	<transition name="slide-fade">
+		  <div v-show="search" class="search z-50 top-0 h-full w-full bg-gray-700 pb-4 fixed lg:overflow-y-hidden overflow-y-scroll">
+		  	<div class="relative sm:h-20 h-16 dark2">
+		  		<input @keyup="searchMovies" v-model="input" type="text" class="w-full sm:h-20 h-16 dark2 border-0 md:pl-8 pl-4 md:pr-64 pr-24 focus:outline-none text-white inline-block">
+		  		
+		  		<div class="absolute right-0 top-0 md:mt-3 mt-4 md:pr-8 pr-6">
 		  			
-		  			<a class="md:hidden cursor-pointer md:mr-0 mr-3">
-			  			<svg class="inline-block w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-						  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+		  			
+			  			<a v-show="showSearch" @click="searchMovies2" class="hidden md:inline-block cursor-pointer lg:ml-8 md:4 py-4 px-8 font-bold tracking-wider uppercase text-white rounded-full  btn-gradient focus:outline-none">
+			  			Search
+			  			</a>
+			  			<a v-show="loading" class="hidden md:inline-block cursor-pointer lg:ml-8 md:4 py-4 px-8 font-bold tracking-wider uppercase text-white rounded-full  btn-gradient focus:outline-none">
+			  			<img src="~/assets/images/three-dots.svg" class="h-6 w-8">
+			  			</a>
+			  			
+			  			<a @click="searchMovies2" class="md:hidden cursor-pointer md:mr-0 mr-3">
+				  			<svg class="inline-block w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+							  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+							</svg>
+				  		</a>
+		  			
+			  		<a @click="search = false, input = '', movies = {}" class="lg:ml-4 md:ml-4 cursor-pointer" >
+			  			<svg class="inline-block h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+						  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
 						</svg>
 			  		</a>
-	  			
-		  		<a @click="search = false" class="lg:ml-4 md:ml-4 cursor-pointer" >
-		  			<svg class="inline-block h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-					  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-					</svg>
-		  		</a>
-	  		</div>
-	  	</div>	
-	  </div>
-	</transition>
-	 
+		  		</div>
+		  	</div>
+		  	<div class="clearfix w-11/12 mx-auto pt-4">
+            <label class="md:text-md text-sm primary font-bold uppercase tracking-wider float-left">Search Results : {{this.input}}</label>
+            <nuxt-link v-if="movies.length > 0 " @click="search = false" :to="'/search/'+input" class="float-right md:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">VIEW ALL
+              <svg class="inline-block h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+            </nuxt-link>
+          </div>
+		  	<div class="w-11/12 mx-auto grid lg:grid-cols-8 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-4 col-gap-4 row-gap-2">
+		  	<template v-if="movies.length > 0">
+		  		<SearchCard v-for="(movie, index) in movies.slice(0,16)" :key="index" :keyword="input" :result="movie" :data-index="index"/>
+		  	</template>
+		  	<template v-else>
+		  		
+		  	</template>
+            
+          	</div>	
+		  	
+		  </div>
+		</transition>
+	 	
 	</div>
 </template>
 
 <script>
+import SearchCard from '~/components/SearchCard.vue'
+import _ from 'lodash';
+import axios from 'axios';
 export default {
 
   name: 'Navbar',
-
+   components:{
+      SearchCard
+    },
   data () {
     return {
     	search: false,
+    	input: '',
+    	movies: {},
+    	loading: false,
+    	showSearch: true,    	
     }
+  },
+  methods:{
+   searchMovies: _.debounce(function(e)  { 
+   			this.loading = true;
+   			this.showSearch = false;
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=88d32cefcb06d0c3a2834e4897e3896c&query='+e.target.value)
+           .then(response => {
+            this.movies = response.data.results;
+           });
+           axios.get('https://api.themoviedb.org/3/search/tv?api_key=88d32cefcb06d0c3a2834e4897e3896c&query='+e.target.value)
+           .then(tv => {
+            this.movies.concat(tv.data.results);
+           });
+           this.showSearch = true;
+           this.loading = false;
+
+          }, 2000),
+   searchMovies2(){
+   	console.log("here");
+   			this.loading = true;
+   			this.showSearch = false;
+   			axios.get('https://api.themoviedb.org/3/search/movie?api_key=88d32cefcb06d0c3a2834e4897e3896c&query='+this.input)
+           .then(response => {
+            this.movies = response.data.results;
+           });
+           axios.get('https://api.themoviedb.org/3/search/tv?api_key=88d32cefcb06d0c3a2834e4897e3896c&query='+this.input)
+           .then(tv => {
+            this.movies.concat(tv.data.results);
+           });
+           this.showSearch = true;
+           this.loading = false;
+
+
+   },
+
   }
 }
 </script>

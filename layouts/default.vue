@@ -4,7 +4,7 @@
     <transition name="fade" mode="out-in">
       <Nuxt />
     </transition>
-    <Footer/>
+    <!-- <Footer/> -->
   </div>
 </template>
 <script>
@@ -12,10 +12,22 @@
   import Footer from '~/components/Footer.vue'
   import '~/assets/css/custom.css'
   export default{
+    head(){
+    return{
+      titleTemplate: 'Moviehub - %s',
+      meta: [
+        {
+        hid: 'description',
+        name: 'description',
+        content: 'Find TV Show Online, Find Movies Online',
+        }
+      ]
+      }
+    },
     components:{
       Navbar,
       Footer,
-    }
+    },
   }
 </script>
 <style scoped>

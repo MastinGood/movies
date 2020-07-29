@@ -4,7 +4,7 @@
       <div class="md:w-10/12 w-11/12 mx-auto pt-16">
         <div>
           <label class="text-lg primary font-bold uppercase tracking-wider">TV Airing Today</label>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-6">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <SeriesCard v-for="(airing, index) in airings" :key="index" :series="airing" :data-index="index"/>
           </div>
         </div>

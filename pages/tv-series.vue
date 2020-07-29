@@ -11,7 +11,7 @@
             </svg>
             </nuxt-link>
           </div>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <SeriesCard v-for="(airing, index) in airings.slice(0,18)" :key="index" :series="airing" :data-index="index"/>
           </div>
         </div>
@@ -24,7 +24,7 @@
             </svg>
             </nuxt-link>
           </div>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <SeriesCard v-for="(onair, index) in onairs.slice(0,18)" :key="index" :series="onair" :data-index="index"/>
           </div>
         </div>
@@ -37,7 +37,7 @@
             </svg>
             </nuxt-link>
           </div>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <SeriesCard v-for="(popular, index) in populars.slice(0,18)" :key="index" :series="popular" :data-index="index"/>
           </div>
         </div>
@@ -50,7 +50,7 @@
             </svg>
             </nuxt-link>
           </div>
-          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-6 gap-4">
+          <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <SeriesCard v-for="(toprated, index) in toprateds.slice(0,18)" :key="index" :series="toprated" :data-index="index"/>
           </div>
         </div>
@@ -63,6 +63,18 @@
 <script>
   import SeriesCard from '~/components/SeriesCard.vue'
   export default {
+    head(){
+    return{
+      title: 'Find TV Shows Online',
+      meta: [
+        {
+        hid: 'description',
+        name: 'description',
+        content: 'Find TV Shows Online',
+        }
+      ]
+      }
+    },
     components:{
       SeriesCard,
     },

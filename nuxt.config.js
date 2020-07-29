@@ -54,6 +54,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    'nuxt-purgecss',
+    '@nuxtjs/pwa',
   ],
   /*
   ** Nuxt.js modules
@@ -61,6 +63,12 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+     ['nuxt-lazy-load', {
+      images: true,
+      directiveOnly: true,    
+      // Default image must be in the static folder
+      defaultImage: '/images/lazy.jpg', 
+    }]
   ],
   /*
   ** Axios module configuration
@@ -72,5 +80,31 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  optimizedImages: {
+    imagesName: ({ isDev }) => isDev ? '[path][name][hash:optimized].[ext]' : 'img/[contenthash:7].[ext]',
+    responsiveImagesName: ({ isDev }) => isDev ? '[path][name]--[width][hash:optimized].[ext]' : 'img/[contenthash:7]-[width].[ext]',
+    handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+    optimizeImages: true,
+    optimizeImagesInDev: true,
+    defaultImageLoader: 'img-loader',
+    mozjpeg: {
+      quality: 80,
+    },
+    optipng: {
+      optimizationLevel: 3,
+    },
+    pngquant: false,
+  },
+  pwa: {
+  manifest: {
+    name: 'Moviehub',
+    short_name: 'HackerWeb',
+    start_url: '/',
+    description: 'Find Movies Online, Find TV Show Online',
+    theme_color: '#00C6CF',
+    lang: 'en-US',
   }
+}
+
 }
