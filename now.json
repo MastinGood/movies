@@ -6,8 +6,11 @@
       "src": "nuxt.config.js",
       "use": "@nuxtjs/now-builder",
       "config": {
-        "serverFiles": ["package.json"],
-        "public": true,
+        "serverFiles": [
+          "package.json",
+          "./static/**/*",
+        ],
+
       }
     }
   ],
