@@ -37,7 +37,7 @@
   },
     async asyncData({$axios, error, params}){
       try{
-        const top = await $axios.get('https://api.themoviedb.org/3/tv/top_rated?api_key=88d32cefcb06d0c3a2834e4897e3896c&page=1'+params.page)
+        const top = await $axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=1`+params.page)
         return{
           tops: top.data.results,
         }    

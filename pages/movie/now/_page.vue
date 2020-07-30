@@ -37,7 +37,7 @@
   },
     async asyncData({$axios, error, params}){
       try{
-        const now = await $axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=88d32cefcb06d0c3a2834e4897e3896c&page='+params.page)
+        const now = await $axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}&page=`+params.page)
         return{
           nows: now.data.results,
         }    

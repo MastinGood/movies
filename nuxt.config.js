@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 export default {
   /*
@@ -55,6 +56,7 @@ export default {
     '@nuxtjs/tailwindcss',
     'nuxt-purgecss',
     '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Nuxt.js modules

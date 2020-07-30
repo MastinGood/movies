@@ -139,11 +139,11 @@ head(){
 	},
   async asyncData({$axios, error, params}){
       try{
-         const movie = await $axios.get('https://api.themoviedb.org/3/movie/'+params.id+'?api_key=88d32cefcb06d0c3a2834e4897e3896c&language=en-US')
-         const credit = await $axios.get('https://api.themoviedb.org/3/movie/'+params.id+'/credits?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-         const image = await $axios.get('https://api.themoviedb.org/3/movie/'+params.id+'/images?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-         const video = await $axios.get('https://api.themoviedb.org/3/movie/'+params.id+'/videos?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-         const similar = await $axios.get('https://api.themoviedb.org/3/movie/'+params.id+'/similar?api_key=88d32cefcb06d0c3a2834e4897e3896c')
+         const movie = await $axios.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.API_KEY}`)
+         const credit = await $axios.get(`https://api.themoviedb.org/3/movie/${params.id}/credits?api_key=${process.env.API_KEY}`)
+         const image = await $axios.get(`https://api.themoviedb.org/3/movie/${params.id}/images?api_key=${process.env.API_KEY}`)
+         const video = await $axios.get(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${process.env.API_KEY}`)
+         const similar = await $axios.get(`https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=${process.env.API_KEY}`)
          
         return{
           movie: movie.data,

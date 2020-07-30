@@ -37,7 +37,7 @@
   },
     async asyncData({$axios, error, params}){
       try{
-        const airing = await $axios.get('https://api.themoviedb.org/3/tv/airing_today?api_key=88d32cefcb06d0c3a2834e4897e3896c&page='+params.page)
+        const airing = await $axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.API_KEY}&page=`+params.page)
         return{
           airings: airing.data.results,
         }    

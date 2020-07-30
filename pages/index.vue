@@ -22,7 +22,7 @@
             <MovieCard v-for="(now, index) in nows.slice(0,12)" :key="index" :movie="now" :data-index="index"/>
           </div>
         </div>
-        <div class="mt-16">
+        <!-- <div class="mt-16">
            <div class="clearfix">
             <label class="md:text-lg text-md primary font-bold uppercase tracking-wider float-left">Upcoming Movies</label>
             <nuxt-link prefetch to="/movie/upcoming/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
@@ -34,7 +34,7 @@
           <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
             <MovieCard v-for="(upcoming, index) in upcomings.slice(0,12)" :key="index" :movie="upcoming" :data-index="index"/>
           </div>
-        </div>
+        </div> -->
         <div class="mt-16">
           <div class="clearfix">
             <label class="md:text-lg text-md primary font-bold uppercase tracking-wider float-left">Popular Movies</label>
@@ -86,17 +86,17 @@
     },
     async asyncData({$axios, error}){
       try{
-        const popular = await $axios.get('https://api.themoviedb.org/3/movie/popular?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-        const top = await $axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-        const now = await $axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-        const upcoming = await $axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-        const trending = await $axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=88d32cefcb06d0c3a2834e4897e3896c')
+        const popular = await $axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
+        const top = await $axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}`)
+        const now = await $axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}`)
+        // const upcoming = await $axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`)
+        const trending = await $axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.API_KEY}`)
         
         return{
           populars: popular.data.results,
           tops: top.data.results,
           nows: now.data.results,
-          upcomings: upcoming.data.results,
+          // upcomings: upcoming.data.results,
           trendings: trending.data.results,
         }    
       } 
