@@ -52,7 +52,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    '@aceforth/nuxt-optimized-images',
     '@nuxtjs/tailwindcss',
     'nuxt-purgecss',
     '@nuxtjs/pwa',
@@ -61,15 +61,24 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
+    'nuxt-webfontloader',
+     ['@nuxtjs/robots', {
+      UserAgent: '*',
+     Disallow: '/',
+     }],
     '@nuxtjs/axios',
      ['nuxt-lazy-load', {
       images: true,
       directiveOnly: true,    
       // Default image must be in the static folder
       defaultImage: '/images/lazy.jpg', 
-    }]
+    }],
   ],
+  webfontloader: {
+    google: {
+      families: ['Inter:400,500,600,700,800'],
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -99,12 +108,35 @@ export default {
   pwa: {
   manifest: {
     name: 'Moviehub',
-    short_name: 'HackerWeb',
+    short_name: 'Moviehub',
     start_url: '/',
     description: 'Find Movies Online, Find TV Show Online',
     theme_color: '#00C6CF',
-    lang: 'en-US',
-  }
+    lang: 'en',
+    display: 'standalone',
+  },
+  workbox: {
+  runtimeCaching: [
+    {
+      urlPattern: 'https://api.themoviedb.org/.*',
+      handler: 'cacheFirst',
+      method: 'GET',
+      strategyOptions: { networkTimeoutSeconds: 20, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
+    },
+    {
+      urlPattern: 'https://fonts.googleapis.com/.*',
+      handler: 'cacheFirst',
+      method: 'GET',
+      strategyOptions: { networkTimeoutSeconds: 20, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
+    },
+    {
+      urlPattern: 'https://image.tmdb.org/.*',
+      handler: 'cacheFirst',
+      method: 'GET',
+      strategyOptions: { networkTimeoutSeconds: 20, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
+    },
+  ]
+}
 }
 
 }

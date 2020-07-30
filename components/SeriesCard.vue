@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="'/tv-series/'+series.id">
+  <nuxt-link :to="'/tv-series/'+series.id" prefetch>
 	<div class="mt-5 movie-wrapper transform transition ease-in-out duration-500 hover:scale-105">
     <img v-if="series.poster_path === null" v-lazy-load src="~/assets/images/poster.jpg" class="rounded-md poster w-auto h-auto">
 		<img v-else :src="base_path+series.poster_path" v-lazy-load class="rounded-md poster ">

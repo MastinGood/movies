@@ -5,13 +5,13 @@
         <div>
           <label class="md:text-lg text-md primary font-bold uppercase tracking-wider">Trending Movies</label>
           <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
-            <MovieCard v-for="(trending, index) in trendings.slice(0,18)" :key="index" :movie="trending" :data-index="index"/>
+            <MovieCard v-for="(trending, index) in trendings.slice(0,12)" :key="index" :movie="trending" :data-index="index"/>
           </div>
         </div>
         <div class="mt-16">
           <div class="clearfix">
             <label class="md:text-lg text-md primary font-bold uppercase tracking-wider float-left">Now Playing</label>
-            <nuxt-link to="/movie/now/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
+            <nuxt-link prefetch to="/movie/now/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
               <svg class="inline-block h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
             </svg>
@@ -19,46 +19,46 @@
           </div>
           
           <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
-            <MovieCard v-for="(now, index) in nows.slice(0,18)" :key="index" :movie="now" :data-index="index"/>
+            <MovieCard v-for="(now, index) in nows.slice(0,12)" :key="index" :movie="now" :data-index="index"/>
           </div>
         </div>
         <div class="mt-16">
            <div class="clearfix">
             <label class="md:text-lg text-md primary font-bold uppercase tracking-wider float-left">Upcoming Movies</label>
-            <nuxt-link to="/movie/upcoming/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
+            <nuxt-link prefetch to="/movie/upcoming/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
               <svg class="inline-block h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
             </svg>
             </nuxt-link>
           </div>
           <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
-            <MovieCard v-for="(upcoming, index) in upcomings.slice(0,18)" :key="index" :movie="upcoming" :data-index="index"/>
+            <MovieCard v-for="(upcoming, index) in upcomings.slice(0,12)" :key="index" :movie="upcoming" :data-index="index"/>
           </div>
         </div>
         <div class="mt-16">
           <div class="clearfix">
             <label class="md:text-lg text-md primary font-bold uppercase tracking-wider float-left">Popular Movies</label>
-            <nuxt-link to="/movie/popular/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
+            <nuxt-link prefetch to="/movie/popular/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
               <svg class="inline-block h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
             </svg>
             </nuxt-link>
           </div>
           <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
-            <MovieCard v-for="(popular, index) in populars.slice(0,18)" :key="index" :movie="popular" :data-index="index"/>
+            <MovieCard v-for="(popular, index) in populars.slice(0,12)" :key="index" :movie="popular" :data-index="index"/>
           </div>
         </div>
         <div class="mt-16">
           <div class="clearfix">
             <label class="md:text-lg text-md primary font-bold uppercase tracking-wider float-left">Top Rated Movies</label>
-            <nuxt-link to="/movie/top-rated/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
+            <nuxt-link prefetch to="/movie/top-rated/1" class="float-right md:text-lg sm:text-md text-sm primary font-bold uppercase tracking-wider inline-block flex items-center">More
               <svg class="inline-block h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
             </svg>
             </nuxt-link>
           </div>
           <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:col-gap-6 col-gap-4 row-gap-3">
-            <MovieCard v-for="(top, index) in tops.slice(0,18)" :key="index" :movie="top" :data-index="index"/>
+            <MovieCard v-for="(top, index) in tops.slice(0,12)" :key="index" :movie="top" :data-index="index"/>
           </div>
         </div>
       </div>

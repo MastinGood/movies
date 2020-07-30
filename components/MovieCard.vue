@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="'/movie/'+movie.id">
+  <nuxt-link :to="'/movie/'+movie.id" prefetch>
 	<div class="mt-5 movie-wrapper transform transition ease-in-out duration-500 hover:scale-105">
     
       <img v-if="movie.poster_path === null" v-lazy-load src="~/assets/images/poster.jpg" class="rounded-md poster w-auto h-auto">

@@ -5,12 +5,12 @@
 	      <div class="flex items-center justify-between md:h-20 h-16">
 	        <div class="flex items-center">
 	          <div class="flex-shrink-0">
-	            <nuxt-link to="/"><img class="lg:h-10 h-8 w-auto cursor-pointer" src="logo.svg" alt="Workflow logo"></nuxt-link>
+	            <nuxt-link to="/" prefetch><img class="lg:h-10 h-8 w-auto cursor-pointer" src="~/assets/images/logo.svg" alt="Workflow logo"></nuxt-link>
 	          </div>
 	          <div class="hidden md:block">
 	            <div class="ml-10 flex items-baseline">
-	              <nuxt-link to="/" class="px-3 py-2 rounded-md text-sm font-medium text-white focus:outline-none focus:primary hover:primary">Movies</nuxt-link>
-	              <nuxt-link to="/tv-series" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 focus:primary hover:primary focus:outline-none">TV Series</nuxt-link>	              
+	              <nuxt-link to="/" prefetch class="px-3 py-2 rounded-md text-sm font-medium text-white focus:outline-none focus:primary hover:primary">Movies</nuxt-link>
+	              <nuxt-link to="/tv-series" prefetch class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 focus:primary hover:primary focus:outline-none">TV Series</nuxt-link>	              
 	              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 focus:primary hover:primary focus:outline-none">Popular</a> 
 	              <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 focus:primary hover:primary focus:outline-none">Top Rated</a>
 	              
@@ -66,7 +66,7 @@
 	  <div class="h-16 z-50  bottom-0 fixed md:hidden block w-full dark2 top-border-dark">
 	  		<div class="flex items-center h-full">
 			  <div class="flex-1 text-center mt-1">
-			  	<nuxt-link to="/" class="text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
+			  	<nuxt-link to="/" prefetch class="focus:outline-none text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
 				  	<div class="flex justify-center">
 				  		<svg class="h-5 w-5" fill="#7c7c7d" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 403.096 403.096" style="enable-background:new 0 0 403.096 403.096;" xml:space="preserve">
@@ -92,7 +92,7 @@
 				  </nuxt-link>
 			  </div>
 			  <div class="flex-1 text-center mt-1">
-			  	<nuxt-link to="/tv-series" class="text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
+			  	<nuxt-link to="/tv-series" prefetch class="focus:outline-none text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
 				  	<div class="flex justify-center">
 				  		<svg class="h-5 w-5" fill="#7c7c7d" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g><path d="m467 120h-174.787l94.394-94.394c5.858-5.858 5.858-15.355 0-21.213-5.857-5.858-15.355-5.858-21.213 0l-109.394 109.394-109.393-109.393c-5.857-5.858-15.355-5.858-21.213 0s-5.858 15.355 0 21.213l94.393 94.393h-174.787c-24.813 0-45 20.187-45 45v302c0 24.813 20.187 45 45 45h422c24.813 0 45-20.187 45-45v-302c0-24.813-20.187-45-45-45zm15 347c0 8.271-6.729 15-15 15h-422c-8.271 0-15-6.729-15-15v-302c0-8.271 6.729-15 15-15h422c8.271 0 15 6.729 15 15z"/><path d="m437 180h-362c-8.284 0-15 6.716-15 15v242c0 8.284 6.716 15 15 15h362c8.284 0 15-6.716 15-15v-242c0-8.284-6.716-15-15-15zm-15 242h-332v-212h332z"/><path d="m218.922 389.225c2.218 1.187 4.65 1.775 7.077 1.775 2.91 0 5.812-.846 8.321-2.519l90-60c4.173-2.782 6.68-7.466 6.68-12.481s-2.506-9.699-6.68-12.481l-90-60c-4.603-3.068-10.52-3.355-15.398-.744-4.877 2.61-7.922 7.694-7.922 13.225v120c0 5.532 3.045 10.615 7.922 13.225zm22.078-105.197 47.959 31.972-47.959 31.972z"/></g></svg>
 				  	</div>
@@ -100,7 +100,7 @@
 				  </nuxt-link>
 			  </div>
 			  <div class="flex-1 text-center">
-			  	<a href="" class="text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
+			  	<a href="" class="focus:outline-none text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
 				  	<div class="flex justify-center mt-1">
 				  		<svg class="h-5 w-5" stroke="#7c7c7d" fill="#7c7c7d" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 403.096 403.096" style="enable-background:new 0 0 403.096 403.096;" xml:space="preserve">
@@ -126,7 +126,7 @@
 				  </a>
 			  </div>
 			  <div class="flex-1 text-center">
-			  	<a href="" class="text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
+			  	<a href="" class="focus:outline-none text-white font-semibold tracking-wider mt-1 sm:text-sm text-xs custom-white focus:primary hover:primary">
 				  	<div class="flex justify-center mt-1">
 				  		<svg class="h-5 w-5" stroke="#7c7c7d" fill="#7c7c7d" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 						 viewBox="0 0 403.096 403.096" style="enable-background:new 0 0 403.096 403.096;" xml:space="preserve">
