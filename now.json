@@ -7,7 +7,7 @@
       "use": "@nuxtjs/now-builder",
       "config": {
         "serverFiles": [
-          "package.json",
+          "package.json"
         ],
 
       }
