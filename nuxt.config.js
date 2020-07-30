@@ -28,7 +28,6 @@ export default {
   loading: {
    color: '#00C6CF',
    height: '2px',
-   throttle: 0
   },
  
   /*
@@ -69,9 +68,11 @@ export default {
     '@nuxtjs/axios',
      ['nuxt-lazy-load', {
       images: true,
+      iframes: true,
+      polyfill: true,
       directiveOnly: true,    
       // Default image must be in the static folder
-      defaultImage: '/images/lazy.jpg', 
+      defaultImage: '/lazy.jpg', 
     }],
   ],
   webfontloader: {
@@ -119,21 +120,21 @@ export default {
   runtimeCaching: [
     {
       urlPattern: 'https://api.themoviedb.org/.*',
-      handler: 'cacheFirst',
+      handler: 'staleWhileRevalidate',
       method: 'GET',
-      strategyOptions: { networkTimeoutSeconds: 20, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
+      strategyOptions: { cacheExpiration: {maxEntries: 10, maxAgeSeconds: 7 * 24 * 60 * 60}, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
     },
     {
       urlPattern: 'https://fonts.googleapis.com/.*',
-      handler: 'cacheFirst',
+      handler: 'staleWhileRevalidate',
       method: 'GET',
-      strategyOptions: { networkTimeoutSeconds: 20, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
+      strategyOptions: { cacheExpiration: {maxEntries: 10, maxAgeSeconds: 7 * 24 * 60 * 60}, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
     },
     {
       urlPattern: 'https://image.tmdb.org/.*',
-      handler: 'cacheFirst',
+      handler: 'staleWhileRevalidate',
       method: 'GET',
-      strategyOptions: { networkTimeoutSeconds: 20, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
+      strategyOptions: { cacheExpiration: {maxEntries: 10, maxAgeSeconds: 7 * 24 * 60 * 60}, cacheName: 'api-cache', cacheableResponse: { statuses: [0, 200] } }
     },
   ]
 }

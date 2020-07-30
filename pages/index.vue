@@ -88,7 +88,7 @@
       try{
         const popular = await $axios.get('https://api.themoviedb.org/3/movie/popular?api_key=88d32cefcb06d0c3a2834e4897e3896c')
         const top = await $axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=88d32cefcb06d0c3a2834e4897e3896c')
-        const now = await $axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=88d32cefcb06d0c3a2834e4897e3896c&language=en-US&page=1')
+        const now = await $axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=88d32cefcb06d0c3a2834e4897e3896c')
         const upcoming = await $axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=88d32cefcb06d0c3a2834e4897e3896c')
         const trending = await $axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=88d32cefcb06d0c3a2834e4897e3896c')
         
