@@ -41,7 +41,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-  
+  "@/plugins/vue-lazyload"
   ],
   /*
   ** Auto import components
@@ -68,14 +68,6 @@ export default {
      Disallow: '/',
      }],
     '@nuxtjs/axios',
-     ['nuxt-lazy-load', {
-      images: true,
-      iframes: true,
-      polyfill: true,
-      directiveOnly: true,    
-      // Default image must be in the static folder
-      defaultImage: '/lazy.jpg', 
-    }],
   ],
   webfontloader: {
     google: {

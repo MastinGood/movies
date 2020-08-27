@@ -4,10 +4,10 @@ html{
 	font-family: 'Inter', sans-serif!important;
 }
 .custom-dark{
-	background: #212121;
+	background: #0D0F15;
 }
 .dark2{
-	background: #222;
+	background: #0D0F15;
 }
 .poster{
 	filter: brightness(0.9);
@@ -35,9 +35,10 @@ html{
 .nuxt-link-exact-active svg{
    fill: #00C6CF!important;
 }
-a:hover svg{
+
+/*a:hover svg{
 	fill:#00C6CF!important;
-}
+}*/
 .poster:hover{
 	filter: brightness(1);
 }
@@ -58,8 +59,32 @@ a:hover svg{
 	background: rgba(0, 0, 0, 0.9);
 
 }
+.slick-next{
+	right: 10px!important;
+}
+.slick-prev{
+	left: 10px!important;
+    z-index: 20!important;
+}
+.slick-dots li button:before{
+	font-size: 8px!important;
+}
+.slick-dots li.slick-active button:before{
+	color: #00C6CF!important;
+}
+.dark-gradient{
+	background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0)),to(#0D0F15));
+	position: absolute;
+	bottom: 0;
+	height: 25%;
+	content: "";
+	width: 100%;
+}
 .custom-white{
 	color: #7c7c7d;
+}
+.slide-img {
+ filter: brightness(0.7);
 }
 .video-youtube{
 		width: 90%;
@@ -70,17 +95,29 @@ a:hover svg{
 		width: 90%;
 		height: 450px;
 	}
+	.slider{
+	height: 460px;
+	}
  }
 @media (min-width: 768px) { 
 	.video-youtube{
 		width: 80%;
 		height: 520px;
 	}
+	.slider{
+	height: 540px;
+	}
+	.slick-dots li button:before{
+	font-size: 12px!important;
+}
  }
 @media (min-width: 1024px) { 
 	.video-youtube{
 		width: 80%;
 		height: 600px;
+	}
+	.slider{
+	height: 720px;
 	}
  }
 @media (min-width: 1280px) { 

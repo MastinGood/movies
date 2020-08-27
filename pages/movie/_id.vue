@@ -4,12 +4,12 @@
 			<iframe v-show="play" class="fixed m-auto inset-0 z-50 video-youtube" :src="youtube_url+video.key" frameborder="0" allowfullscreen></iframe>
 		</div>
 		
-	
+	  
       <div class="md:w-10/12 w-11/12 mx-auto md:py-16 py-3 bottom-border-dark">
       	<div class="flex flex-wrap">
       		<div class="lg:w-4/12 md:w-5/12 sm:w-4/12 w-full inline-block">
-      		<img v-if="movie.poster_path == null" v-lazy-load src="~/assets/images/poster.jpg" class="rounded-sm shadow-lg">
-      		<img v-else :src="base_path+movie.poster_path" v-lazy-load class="rounded-sm poster">
+      		<img v-if="movie.poster_path == null" v-lazy="no_poster" :src="no_poster" class="rounded-sm shadow-lg">
+      		<img v-else :src="base_path+movie.poster_path" v-lazy="base_path+movie.poster_path" class="rounded-sm poster">
 	      	</div>
 	      	<div class="lg:w-8/12 md:w-7/12 sm:w-8/12 w-full inline-block lg:pl-24 md:pl-16 sm:pl-12 md:pb-0 pb-4">
 	      		<h2 class="font-bold xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-white tracking-wide sm:pt-0 pt-4">{{movie.title}}</h2>
@@ -68,16 +68,21 @@
   			</div>
   			<transition name="fade">
 	  			<div v-show="cast" class="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-5 mt-5">
-  					<div v-for="(cast, index) in casts" :key="index">
+  					<template v-if="casts.length > 0">
+  						<div v-for="(cast, index) in casts" :key="index">
 	  					<template v-if="cast.profile_path == null">
-	  						<img src="~/assets/images/avatar3.png" v-lazy-load class="rounded-md h-auto">
+	  						<img :src="no_avatar" v-lazy="no_avatar" class="rounded-md h-auto">
 	  					</template>
 	  					<template v-else>
-	  						<img :src="profile_size+cast.profile_path" v-lazy-load class="rounded-md">
+	  						<img :src="profile_size+cast.profile_path" v-lazy="profile_size+cast.profile_path" class="rounded-md">
 	  					</template>
 	  					<p class="text-white text-md primary cursor-pointer pt-2">{{cast.name}}</p>
 	  					<p class="text-white text-md">{{cast.character}}</p>
 	  				</div>
+  					</template>
+  					<template v-else>
+  						<p class="text-white md:text-md text-sm">No cast posted.</p>
+  					</template>
 	  			</div>
 	  		</transition>
   		</div>
@@ -99,10 +104,14 @@
   			</div>
   			<transition name="fade">
 	  			<div v-show="gallery" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-4 mt-6">
-  					<div v-for="(gallery, index) in images" :key="index">
-	  					<img :src="backdrop+gallery.file_path" v-lazy-load class="rounded-md poster">
-	  					
-	  				</div>
+  					<template v-if="images.length > 0">
+  						<div v-for="(gallery, index) in images" :key="index">
+		  					<img :src="backdrop+gallery.file_path" v-lazy-load class="rounded-md poster">
+		  				</div>
+  					</template>
+  					<template v-else>
+  							<p class="text-white md:text-md text-sm">No images posted.</p>
+  					</template>
 	  			</div>
 	  		</transition>
   		</div>
@@ -165,7 +174,9 @@ head(){
   		youtube_url: "https://www.youtube.com/embed/",
   		base_path: "https://image.tmdb.org/t/p/w500/",
   		profile_size: "https://image.tmdb.org/t/p/w300/",
-  		backdrop: "https://image.tmdb.org/t/p/w780/",
+  		backdrop: "https://image.tmdb.org/t/p/original/",
+  		no_poster: "/poster.jpg",
+  		no_avatar: "/avatar3.png",
   		cast: false,
   		gallery: true,
   		play: false,
