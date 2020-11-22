@@ -37,7 +37,7 @@
   },
     async asyncData({$axios, error, params}){
       try{
-        const onair = await $axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.API_KEY}&page=`+params.page)
+        const onair = await $axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=88d32cefcb06d0c3a2834e4897e3896c&page=`+params.page)
         return{
           onairs: onair.data.results,
         }    

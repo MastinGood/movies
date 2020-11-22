@@ -131,11 +131,11 @@
     },
     async asyncData({$axios, error}){
       try{
-        const popular = await $axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
-        const top = await $axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}`)
-        const now = await $axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}`)
+        const popular = await $axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=88d32cefcb06d0c3a2834e4897e3896c`)
+        const top = await $axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=88d32cefcb06d0c3a2834e4897e3896c`)
+        const now = await $axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=88d32cefcb06d0c3a2834e4897e3896c`)
         // const upcoming = await $axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}`)
-        const trending = await $axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.API_KEY}`)
+        const trending = await $axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=88d32cefcb06d0c3a2834e4897e3896c`)
         
         return{
           populars: popular.data.results,

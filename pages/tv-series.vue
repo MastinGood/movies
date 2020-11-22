@@ -126,10 +126,10 @@
     async asyncData({$axios, error}){
       try{
        
-        const airing = await $axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.API_KEY}`)
-        const onair = await $axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.API_KEY}`)
-        const popular = await $axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`)
-        const toprated = await $axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}`)       
+        const airing = await $axios.get('https://api.themoviedb.org/3/tv/airing_today?api_key=88d32cefcb06d0c3a2834e4897e3896c')
+        const onair = await $axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=88d32cefcb06d0c3a2834e4897e3896c`)
+        const popular = await $axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=88d32cefcb06d0c3a2834e4897e3896c`)
+        const toprated = await $axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=88d32cefcb06d0c3a2834e4897e3896c`)       
         return{
           airings: airing.data.results,
           onairs: onair.data.results,
