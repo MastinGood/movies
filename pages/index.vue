@@ -2,7 +2,7 @@
   <div>
     <main class="dark2 w-full md:mt-20 mt-16 pb-20">
       <client-only>
-        <VueSlickCarousel :arrows="true" :dots="true" :autoplay="true" :fade="true" :swipe="true" :touchMove="true">
+        <VueSlickCarousel :arrows="true" :dots="true" :autoplay="true" :fade="true">
           <div v-for="(trending, index) in trendings.slice(0,10)" :key="index" class="slider w-full focus:outline-none relative">
             <img :src="backdrop_path+trending.backdrop_path" class="slide-img object-cover object-top h-full w-full focus:outline-none">
             <div class="xl:w-4/12 lg:w-5/12 md:w-6/12 sm:w-6/12 w-7/12 absolute bottom-0 xl:ml-40 lg:ml-24 md:ml-20 sm:ml-8 ml-6 lg:mb-24 md:mb-10 sm:mb-10 mb-8">
@@ -129,7 +129,7 @@
     },
     components:{
       MovieCard,
-      VueSlickCarousel,
+      VueSlickCarousel: () => import('vue-slick-carousel'),
     },
     async asyncData({$axios, error}){
       try{
