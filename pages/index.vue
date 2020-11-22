@@ -1,7 +1,6 @@
 <template>
   <div>
     <main class="dark2 w-full md:mt-20 mt-16 pb-20">
-      <client-only>
         <VueSlickCarousel :arrows="true" :dots="true" :autoplay="true" :fade="true">
           <div v-for="(trending, index) in trendings.slice(0,10)" :key="index" class="slider w-full focus:outline-none relative">
             <img :src="backdrop_path+trending.backdrop_path" class="slide-img object-cover object-top h-full w-full focus:outline-none">
@@ -28,7 +27,6 @@
            <div class="dark-gradient"></div>
           </div>
         </VueSlickCarousel>
-      </client-only>
       <div class="md:w-10/12 w-11/12 mx-auto md:pt-16 pt-8">
         <div>
           <label class="md:text-lg text-md primary font-bold uppercase tracking-wider">Trending Movies</label>
@@ -95,7 +93,7 @@
 </template>
 
 <script>
-  import VueSlickCarousel from 'vue-slick-carousel'
+  
   import 'vue-slick-carousel/dist/vue-slick-carousel.css'
   // optional style for arrows & dots
   import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
