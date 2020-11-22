@@ -87,10 +87,7 @@
 </template>
 
 <script>
-  
-  import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-  // optional style for arrows & dots
-  import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
   import SeriesCard from '~/components/SeriesCard.vue'
   export default {
     head(){
