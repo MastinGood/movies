@@ -11,6 +11,8 @@
   import Navbar from '~/components/Navbar.vue'
   import Footer from '~/components/Footer.vue'
   import '~/assets/css/custom.css'
+  import '~/assets/css/vue-slick-carousel.css'
+  import '~/assets/css/vue-slick-carousel-theme.css'
   export default{
     head(){
     return{
