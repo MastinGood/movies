@@ -35,8 +35,6 @@ export default {
   ** Global CSS
   */
   css: [
-  "vue-slick-carousel/dist/vue-slick-carousel.css",
-  "vue-slick-carousel/dist/vue-slick-carousel-theme.css",
   ],
   /*
   ** Plugins to load before mounting the App
