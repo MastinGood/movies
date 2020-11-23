@@ -11,7 +11,6 @@
   import Navbar from '~/components/Navbar.vue'
   import Footer from '~/components/Footer.vue'
   import '~/assets/css/custom.css'
-
   export default{
     head(){
     return{
